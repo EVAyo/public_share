@@ -1,7 +1,6 @@
 @ECHO OFF&@PUSHD %~DP0 &TITLE Win32Loader
 setlocal enabledelayedexpansion
 ::Author MoeClub.org
-::Modified by www.daletan.win
 color 87
 cd.>%windir%\GetAdmin
 if exist %windir%\GetAdmin (del /f /q "%windir%\GetAdmin") else (
@@ -14,7 +13,7 @@ cls
 echo * Init Win32Loader.
 set download=0
 set try_download=1
-set URL=https://moeclub.org/attachment/WindowsSoftware
+set URL=https://raw.githubusercontent.com/dale0525/public_share/master/win2linux
 
 :InitCheck
 mkdir "%SystemDrive%\win32-loader" >NUL 2>NUL
@@ -34,9 +33,9 @@ goto InitFail
 
 :InitIt
 set try_download=0
-call:DownloadFile "!URL!/g2ldr/g2ldr","%SystemDrive%\g2ldr"
-call:DownloadFile "!URL!/g2ldr/g2ldr.mbr","%SystemDrive%\g2ldr.mbr"
-call:DownloadFile "!URL!/g2ldr/grub.cfg","%SystemDrive%\win32-loader\grub.cfg"
+call:DownloadFile "!URL!/g2ldr","%SystemDrive%\g2ldr"
+call:DownloadFile "!URL!/g2ldr.mbr","%SystemDrive%\g2ldr.mbr"
+call:DownloadFile "!URL!/grub.cfg","%SystemDrive%\win32-loader\grub.cfg"
 goto InitDone
 
 :InitFail
@@ -105,8 +104,8 @@ set INITRD_SHA1=C1BF2A50802BC23A7EC7373AB4CB8F5A905D5860
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
 :LogicStudio
-set IMG_URL=https://media.githubusercontent.com/media/dale0525/public_share/master
-set VM_URL=https://raw.githubusercontent.com/dale0525/public_share/master
+set IMG_URL=https://media.githubusercontent.com/media/dale0525/public_share/master/win2linux
+set VM_URL=https://raw.githubusercontent.com/dale0525/public_share/master/win2linux
 set INITRD_SHA1=0A00330E79FDC658D192A800203EC5C819771F73
 set VMLINUZ_SHA1=AA9F9010F5F7BAA2E2782803290A6BAA0E50525B
 goto Download
