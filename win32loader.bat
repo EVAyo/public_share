@@ -105,7 +105,7 @@ set INITRD_SHA1=C1BF2A50802BC23A7EC7373AB4CB8F5A905D5860
 set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
 :LogicStudio
-set IMG_URL=https://github.com/dale0525/public_share/raw/master
+set IMG_URL=https://media.githubusercontent.com/media/dale0525/public_share/master
 set INITRD_SHA1=0a00330e79fdc658d192a800203ec5c819771f73
 set VMLINUZ_SHA1=aa9f9010f5f7baa2e2782803290a6baa0e50525b
 goto Download
