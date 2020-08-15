@@ -73,7 +73,7 @@ goto Image
 :OnlineMode
 echo.
 echo * Please select source.
-echo     [1] by LogicStudio [Linux](Debian8, DHCP or VNC Support)
+echo     [1] by LogicStudio [Linux](Debian10.3, DHCP or VNC Support)
 echo     [2] by MoeClub [Windows](Win7EMB, DHCP or VNC Support)
 echo     [3] by MoeClub [Windows](Win8.1EMB, DHCP or VNC Support)
 echo     [4] by yourself
