@@ -106,6 +106,7 @@ set VMLINUZ_SHA1=C84BF89869868B0325F56F1C0E62604A83B9443F
 goto Download
 :LogicStudio
 set IMG_URL=https://media.githubusercontent.com/media/dale0525/public_share/master
+set VM_URL=https://raw.githubusercontent.com/dale0525/public_share/master
 set INITRD_SHA1=0A00330E79FDC658D192A800203EC5C819771F73
 set VMLINUZ_SHA1=AA9F9010F5F7BAA2E2782803290A6BAA0E50525B
 goto Download
@@ -117,7 +118,7 @@ call:DownloadFile "!IMG_URL!/initrd.img","%SystemDrive%\win32-loader\initrd.img"
 call:CheckFile "%SystemDrive%\win32-loader\initrd.img"
 call:CheckSUM "%SystemDrive%\win32-loader\initrd.img","%INITRD_SHA1%"
 echo Downloading 'vmlinuz'...
-call:DownloadFile "!IMG_URL!/vmlinuz","%SystemDrive%\win32-loader\vmlinuz"
+call:DownloadFile "!VM_URL!/vmlinuz","%SystemDrive%\win32-loader\vmlinuz"
 call:CheckFile "%SystemDrive%\win32-loader\vmlinuz"
 call:CheckSUM "%SystemDrive%\win32-loader\vmlinuz","%VMLINUZ_SHA1%"
 set download=1
