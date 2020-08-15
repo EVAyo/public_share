@@ -1,6 +1,7 @@
 @ECHO OFF&@PUSHD %~DP0 &TITLE Win32Loader
 setlocal enabledelayedexpansion
 ::Author MoeClub.org
+::Modified by www.daletan.win
 color 87
 cd.>%windir%\GetAdmin
 if exist %windir%\GetAdmin (del /f /q "%windir%\GetAdmin") else (
