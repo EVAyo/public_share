@@ -1,0 +1,30 @@
+#
+# Asphalt 8: Airborne(Win32) BIN Archives Unpacker by Bigchillghost
+#
+# script for QuickBMS http://quickbms.aluigi.org
+
+get EXT extension
+if EXT != "bin"
+	print "Wrong input archive(s)! Please choose .bin files as input"
+	cleanexit
+endif
+
+get IdxName filename
+string IdxName + ".hdr"
+open . IdxName 1
+get FileCount long 1
+for i = 0 < FileCount
+	get NameLen long 1
+	getdstring TmpName NameLen 1
+	get Offset longlong 1
+	get Zsize long 1
+	get Size long 1
+	if Zsize == Size
+		set Name string	"Win32"
+		string Name + \
+		string Name + TmpName
+		log Name Offset Size
+	endif
+	get Skip short 1
+next i
+cleanexit

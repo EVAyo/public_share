@@ -1,0 +1,41 @@
+#
+# Asphalt 8: Airborne(Android) TGA Textures Decompressor by Bigchillghost
+#
+# script for QuickBMS http://quickbms.aluigi.org
+
+idstring "PVR"
+goto 0x2C
+get Num long
+savepos Offset
+get EntrySize long
+get Name basename
+string Name + ".pvr"
+if EntrySize == 0
+	get Size asize
+	log Name 0 Size
+	cleanexit
+endif
+log MEMORY_FILE 0 0
+putvarchr MEMORY_FILE 0 0 long
+log Name 0 Offset
+append
+log Name 0 4 MEMORY_FILE
+savepos RelOffset
+math RelOffset + EntrySize
+get Algorithm long
+if Algorithm == 0x347A6C6A
+	comtype lz4
+elif Algorithm == 0x6474737A
+	comtype zstd
+else
+	print "Unhandled Compression %Algorithm%"
+	cleanexit
+endif
+goto 0x8 0 SEEK_CUR
+for i = 0 < Num
+	get Offset long
+	math Offset + RelOffset
+	get Zsize long
+	get Size long
+	clog Name Offset Zsize Size
+next i

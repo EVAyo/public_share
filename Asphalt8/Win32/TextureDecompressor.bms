@@ -1,0 +1,49 @@
+#
+# Asphalt 8: Airborne(Win32) TGA Textures Decompressor by Bigchillghost
+#
+# script for QuickBMS http://quickbms.aluigi.org
+
+
+get EXT extension
+if EXT != "tga"
+	print "Wrong input archive(s)! Please choose .tga files as input"
+	cleanexit
+endif
+
+get Magic long
+if Magic == 0x03525650		#"PVR"
+	get Name basename
+	string Name + ".pvr"
+	get Size asize
+	log Name 0 Size
+elif Magic == 0x20534444		#"DDS"
+	goto 0x14
+	get Size long
+	get SKIP long
+	get Mips long
+	goto 0x7C
+	get Algorithm long
+	if Algorithm == 0x20347A6C
+		comtype lz4
+	else
+		print "Unhandled Compression %Algorithm%"
+		cleanexit
+	endif
+
+	get Name basename
+	string Name + ".dds"
+	log MEMORY_FILE 0 0
+	putvarchr MEMORY_FILE 0 0 long
+	log Name 0 0x7C
+	append
+	log Name 0 4 MEMORY_FILE
+
+	for i = 0 < Mips
+		get Zsize long
+		savepos Offset
+		clog Name Offset Zsize Size
+		goto Zsize 0 SEEK_CUR
+	next i
+else
+	exit
+endif
