@@ -1,0 +1,1 @@
+Get the fastest cloudflare IP with one click.
