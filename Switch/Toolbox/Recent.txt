@@ -1,6 +1,0 @@
-C:\Users\Logic Tan\Downloads\Splatoon2\romfs\Effect\All.Nin_NX_NVN.szs
-C:\Users\Logic Tan\Downloads\Splatoon2\romfs\Model\Wsp_Bubble.Nin_NX_NVN.szs
-C:\Users\Logic Tan\Downloads\Splatoon2\romfs\Model\Player01_anim.Nin_NX_NVN.szs
-C:\Users\Logic Tan\Downloads\Splatoon2\romfs\Model\Player01.Nin_NX_NVN.szs
-C:\Users\Logic Tan\Downloads\Splatoon2\romfs\Model\Player_Squid.Nin_NX_NVN.szs
-C:\Users\Logic Tan\Downloads\Splatoon2\romfs\Model\Enm_CoopSalmonRocketBullet.Nin_NX_NVN.szs
